@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   	root 'welcome#index'
     get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  # nest reservation routes into listings
+  # nest reservation routes into listings only new create index
   resources :listings do
     resources :reservations, only: [:new, :create, :index]
   end
