@@ -1,0 +1,88 @@
+<br>
+<h2 class = "justify-content-center">Choose a place to stay</h2>
+<br>
+
+<div class="nav">
+
+<ul class="nav">
+	<%= form_with scope: :search, :method => "get", url: listings_path, local: true do |form| %>
+
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Filter</a>
+		<div class="dropdown-menu">
+			<div class="dropdown-item">
+				<%= form.text_field :country, placeholder: "Country", class:"nav-item"%>
+			</div>
+			<div class="dropdown-item">
+				<%= form.text_field :city, placeholder: "City", class:"nav-item"%>
+			</div>
+			<div class="dropdown-item">
+				<%= form.check_box :property_type, {}, "Entire House"%>
+				<label for="Entire House ">Entire House</label>
+			</div>
+			<div class="dropdown-item">
+				<%= form.check_box :property_type, {}, "Entire Apartment" %>
+				<label for="Entire Apartment ">Entire Apartment</label>
+			</div>
+			<div class="dropdown-item">
+				<%= form.check_box :property_type, {}, "Private Room"%>
+				<label for="Private Room ">Private Room</label>
+			</div>
+			<div class="dropdown-item">
+				<%= form.check_box :property_type, {}, "Shared Room"%>
+				<label for="Shared Room ">Shared Room</label>
+			</div>
+			<div class="dropdown-item">
+				<%= form.check_box :property_type, {}, "Other"%>
+				<label for="Other ">Other</label>
+			</div>
+
+
+
+			<div class="dropdown-item">
+				<%= form.text_field :min_price, placeholder: "Min Price", class:"nav-item"%>
+			</div>
+			<div class="dropdown-item">
+				<%= form.text_field :max_price, placeholder: "Max Price", class:"nav-item"%>
+			</div>
+			<div class ="dropdown-item">
+				<div = class ="nav-item">
+					<%=form.submit %>
+				</div>
+			</div>
+		</div>
+	</li>
+
+<% end %>
+
+</ul>
+
+
+
+
+
+<div class = "container">
+	<div class="card-deck">
+		<% @listings.each_with_index do |listing, index| %>
+		<div class="col-4">
+			<div class="card">
+				<a href="/listings/<%= listing.id%>"><img class="card-img-top" src="https://cdn.freshome.com/wp-content/uploads/2017/07/contrast-living-room-1.jpg"></a>
+				<div class="card-body">
+					<a href="/listings/<%= listing.id%>" class="card-title" ><h5><%= "#{listing.title}"%></h5></a>
+					<p class="card-text"><%= "#{listing.description.first(60)}..."%></p>
+				</div>
+				<div class="card-footer">
+					<p class=""><strong><%= "#{listing.price_night} MYR"%></strong> per night</p>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+<div class = "container">
+	<%= paginate @listings%>
+</div>

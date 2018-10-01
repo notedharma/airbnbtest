@@ -1,0 +1,18 @@
+Created database 'airbnb_development'
+Created database 'airbnb_test'
+
+
+clearance views create:
+   conflict  app/views/layouts/application.html.erb
+
+   Date.strptime(params[:reservation][:checkin], '%m/%d/%Y')
+
+
+   case key
+   when "min_price"
+     results = results.where("#{key} > #{value}")
+   when "max_price"
+     results = results.where("#{key} < #{value}")
+   else
+     results = results.where("#{key} ILIKE '%#{value}%'")
+   end

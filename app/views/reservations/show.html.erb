@@ -1,0 +1,12 @@
+<h1>Reservation Confirmed!</h1>
+<p><%= "Reservation Number:#{@reservation.id}"%></p>
+<p>You're going to:</p>
+<h5><a href="/listings/<%= @reservation.listing.id%>"><%= @reservation.listing.title %></a></h5>
+<p><%= "#{@reservation.listing.city}, #{@reservation.listing.country}" %></p>
+
+<h5><%= "Check-In #{@reservation.checkin}" %></h5>
+<h5><%= "Check-Out #{@reservation.checkout}" %></h5>
+
+Total days:
+<p><%= "Days: #{@days},  #{@reservation.listing.price_night} per night" %></p>
+<h5><%= "Total Amount: $#{@reservation.price}" %></h5>

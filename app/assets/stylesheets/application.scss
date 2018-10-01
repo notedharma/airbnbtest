@@ -1,0 +1,16 @@
+/*
+*=require rails_bootstrap_forms
+*=require bootstrap-datepicker
+*/
+
+
+
+@import "bootstrap";
+@import "listings";
+@import "payment";
+
+body {
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight:300;
+}
