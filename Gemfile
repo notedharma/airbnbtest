@@ -48,6 +48,7 @@ gem 'rails_12factor'
 
 # upgrade because of github security vulnerability
 gem "loofah", ">= 2.2.3"
+# gem "rack", ">= 2.0.6"
 
 
 
